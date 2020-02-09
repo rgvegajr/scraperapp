@@ -23,7 +23,24 @@ module.exports = function(app) {
         //     });
     });
 
+    // Load saved articles page
+    app.get("/saved", function(req, res) {
+        db.Article.find().then(function(allArticles) {
+            let articles = [];
+            for (let i = 0; i < allArticles.length; i++) {
+                articles.push(allArticles[i])
+            };
+            res.render('saved', { articles: articles });
+        });
 
+        // }
+
+        //     {}).then(function(articles) {
+        //     res.render("index", {
+        //         title: articles.title,
+        //         link: articles.link
+        //     });
+    });
     // A GET route for scraping the echoJS website
     app.get("/scrape", function(req, res) {
         // First, we grab the body of the html with axios
