@@ -1,31 +1,32 @@
 {
-  "name": "scraperapp",
-  "version": "1.0.0",
-  "description": "full-stack coding bootcamp web scraper assignment using node, mongoDb, mongoose",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rgvegajr/scraperapp.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rgvegajr/scraperapp/issues"
-  },
-  "homepage": "https://github.com/rgvegajr/scraperapp#readme",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "mongoose": "^5.8.11",
-    "morgan": "^1.9.1",
-    "nodemon": "^2.0.2"
-  },
-  "devDependencies": {
-    "handlebars": "^4.5.0"
-  }
+    "name": "scraperapp",
+    "version": "1.0.0",
+    "description": "full-stack coding bootcamp web scraper assignment using node, mongoDb, mongoose",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rgvegajr/scraperapp.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rgvegajr/scraperapp/issues"
+    },
+    "homepage": "https://github.com/rgvegajr/scraperapp#readme",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "cheerio": "^1.0.0-rc.3",
+        "express": "^4.17.1",
+        "express-handlebars": "^3.1.0",
+        "mongoose": "^5.8.11",
+        "morgan": "^1.9.1",
+        "nodemon": "^2.0.2"
+    },
+    "devDependencies": {
+        "handlebars": "^4.5.0"
+    }
 }
