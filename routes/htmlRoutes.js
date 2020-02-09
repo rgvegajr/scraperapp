@@ -1,35 +1,62 @@
-var axios = require("axios");
-var cheerio = require("cheerio");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 var db = require("../models");
 
 module.exports = function(app) {
+    // Load index page
+    app.get("/", function(req, res) {
+        db.Article.find().then(function(allArticles) {
+            let articles = [];
+            for (let i = 0; i < allArticles.length; i++) {
+                articles.push(allArticles[i])
+            };
+            res.render('index', { articles: articles });
+        });
+
+        // }
+
+        //     {}).then(function(articles) {
+        //     res.render("index", {
+        //         title: articles.title,
+        //         link: articles.link
+        //     });
+    });
+
 
     // A GET route for scraping the echoJS website
     app.get("/scrape", function(req, res) {
         // First, we grab the body of the html with axios
-        axios.get("http://www.echojs.com/").then(function(response) {
-            // Then, we load that into cheerio and save it to $ for a shorthand selector
-            var $ = cheerio.load(response.data);
+        // axios.get("http://www.echojs.com/").then(function(response) {
+        axios.get("https://www.wsj.com/").then(function(response) {
+            console.log("Number of articles returned: ");
 
-            // Now, we grab every h2 within an article tag, and do the following:
-            $("article h2").each(function(i, element) {
+
+            // Then, we load that into cheerio and save it to $ for a shorthand selector
+            const $ = cheerio.load(response.data);
+            console.log(Object.keys(response.data).length);
+
+            //empty the database
+            db.Article.deleteMany({}, function(err) {});
+
+            // Now, we grab every title within an article tag, and do the following:
+            $("article").each(function(i, element) {
                 // Save an empty result object
                 var result = {};
 
                 // Add the text and href of every link, and save them as properties of the result object
                 result.title = $(this)
-                    .children("a")
+                    .children()
                     .text();
                 result.link = $(this)
-                    .children("a")
+                    .find("a")
                     .attr("href");
 
                 // Create a new Article using the `result` object built from scraping
                 db.Article.create(result)
                     .then(function(dbArticle) {
                         // View the added result in the console
-                        console.log(dbArticle);
+                        // console.log(dbArticle);
                     })
                     .catch(function(err) {
                         // If an error occurred, log it
