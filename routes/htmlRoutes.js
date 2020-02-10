@@ -47,14 +47,17 @@ module.exports = function(app) {
         // axios.get("http://www.echojs.com/").then(function(response) {
         axios.get("https://www.wsj.com/").then(function(response) {
             console.log("Number of articles returned: ");
+            console.log("1");
 
 
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(response.data);
+            console.log("2");
             console.log(Object.keys(response.data).length);
-
+            console.log("3");
             //empty the database
             db.Article.deleteMany({}, function(err) {});
+            console.log("4");
 
             // Now, we grab every title within an article tag, and do the following:
             $("article").each(function(i, element) {
