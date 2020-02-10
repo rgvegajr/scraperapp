@@ -1,54 +1,28 @@
-        {{!-- <div class="col-6 mx-auto"> --}}
-          {{!-- <table class="table table-striped text-center">
-            <thead><span class="display-4">Article</span></thead>  
-          <tbody>
-              <tr>
-                {{#each articles}}
-
-              <td style="font-size: large; font-weight:bold;"
-                  class="text-success">{{this.title}}</td>
-              </tr>
-              <tr>
-              <td style="font-size: large; font-weight:bold;"><a href="{{this.link}}" target="_blank"
-                  class="text-success">{{this.link}}</a></td>
-              </tr>
-              <tr>
-              <td>===================================================================================</td>
-              </tr>
-
-
-            {{/each}}              
-            </tbody>
-          </table> --}}
-              <main role="main">
-
+<main role="main">
        <section class="jumbotron text-center">
             <div class="container">
-                <h1 class="jumbotron-heading">Find News Articles</h1>
-                <p class="lead text-muted">Click a button below to scrape the web for articles or to read found articles.</p>
+                <h1 class="jumbotron-heading">Find Wall Street Journal News Articles</h1>
+                <h2 class="lead text-muted"><strong><em>Click a button below.</em></strong></h2>
                 <p>
-                    <a href="/scrape" id="scrape" class="btn btn-primary my-2">Scrape Now</a>
+                    <a href="/scrape" id="scrape" class="btn btn-primary my-2">Scrape New Articles</a>
                     <a href="/saved" id="read" class="btn btn-secondary my-2">Saved Articles</a>
-                    <a href="#" id="scrape" class="btn btn-danger my-2">Clear Articles</a>
-                    <!-- <a href="#" id="read" class="btn btn-secondary my-2">Read Articles</a> -->
+                    <a href="/clear" id="clear" class="btn btn-danger my-2">Clear Unsaved Articles</a>
                 </p>
             </div>
         </section>
-
 
   <div class="album py-5 bg-light">
            <div class="container">
                 <div class="row">
                                   {{#each articles}}
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            {{!-- <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap"> --}}
+                    <div class="col-md-6">
+                        <div class="card mb-6 box-shadow">
                             <div class="card-body">
-                                <p class="card-text">{{this.title}}</p>
+                                <p class="card-text text-truncate">{{this.title}}</p>
                                  <p><small class="text-muted"><em>Read Article: </em><a href="{{this.link}}" target="_blank"
                   class="text-success">{{this.link}}</a></small></p>                                   
-                                        <button type="button" class="btn btn-sm btn-primary">Save Article</button>
-                                        <button type="button" class="btn btn-sm btn-success">Add Note</button>
+                                        <button type="button" data-id={{this._id}} id="saveArticle" class="btn btn-sm btn-primary">Save Article</button>
+                                        <button type="button" data-id={{this._id}} id="addNote" class="btn btn-sm btn-success">Add Note</button>
                             </div>
                         </div>
                     </div>

@@ -82,7 +82,8 @@ module.exports = function(app) {
             });
 
             // Send a message to the client
-            res.send("Scrape Complete");
+            // res.send("Scrape Complete");
+            res.redirect("/");
         });
     });
 
@@ -115,4 +116,27 @@ module.exports = function(app) {
                 res.json(err);
             });
     });
+
+    // Route for getting all Articles from the db
+    app.get("/clear", function(req, res) {
+        //empty the database
+        db.Article.deleteMany({ saved: false }, function(err) {})
+            .then(function(dbArticle) {
+                // If we were able to successfully find Articles, send them back to the client
+                res.redirect("/");
+                // res.json(dbArticle);
+            })
+            .catch(function(err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
+    });
+
+
+
+
+
+
+
+
 };

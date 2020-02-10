@@ -41,3 +41,17 @@ footer p {
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/* 
+.scroll-box {
+    overflow-y: scroll;
+    height: 100px;
+    padding: 1rem
+} */

@@ -2,6 +2,21 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+    app.post("/articles/:id", function(req, res) {
+        console.log("save article BE route");
+        console.log(req.params.id);
+        // save an article by setting saved: true
+        db.Article.findOneAndUpdate({ _id: req.params.id }, { saved: true })
+            .then(function(dbArticle) {
+                // If we were able to successfully save an Article, send it back to the client
+                res.json(dbArticle);
+            })
+            .catch(function(err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
+    });
+
     // Route for saving/updating an Article's associated Note
     app.post("/articles/:id", function(req, res) {
         // Create a new note and pass the req.body to the entry
@@ -21,6 +36,5 @@ module.exports = function(app) {
                 res.json(err);
             });
     });
-
 
 };
