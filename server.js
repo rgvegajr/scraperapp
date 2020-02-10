@@ -33,7 +33,8 @@ app.use(express.static("public"));
 //incorporate from homework instructions then delete line above 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraper";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 
 // Handlebars
