@@ -53,7 +53,7 @@ module.exports = function(app) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(response.data);
             console.log("2");
-            console.log(Object.keys(response.data).length);
+            // console.log(Object.keys(response.data).length);
             console.log("3");
             //empty the database
             db.Article.deleteMany({}, function(err) {});
