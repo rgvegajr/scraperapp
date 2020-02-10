@@ -1,35 +1,34 @@
 <main role="main">
-       <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Saved News Articles</h1>
-                <p>
-                    <a href="/" id="index" class="btn btn-primary my-2">Home</a>
-                    {{!-- <a href="/articles" id="read" class="btn btn-secondary my-2">Raw Articles</a> --}}
-                    {{!-- <a href="/clear" id="clear" class="btn btn-danger my-2">Clear Unsaved Articles</a> --}}
-                </p>
-            </div>
-        </section>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Saved News Articles</h1>
+            <p>
+                <a href="/" id="index" class="btn btn-primary my-2">Home</a> {{!-- <a href="/articles" id="read" class="btn btn-secondary my-2">Raw Articles</a> --}} {{!-- <a href="/clear" id="clear" class="btn btn-danger my-2">Clear Unsaved Articles</a>                --}}
+            </p>
+        </div>
+    </section>
 
-  <div class="album py-5 bg-light">
-           <div class="container">
-                <div class="row">
-                                  {{#each articles}}
-                    <div class="col-md-6">
-                                                        {{#if this.saved}}
-                        <div class="card mb-6 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text text-truncate">{{this.title}}</p>
-                                <p><small class="text-muted"><em>Read Article: </em><a href="{{this.link}}" target="_blank"
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <p id="notes"></p>
+            <div class="row">
+                {{#each articles}}
+                <div class="col-md-6">
+                    {{#if this.saved}}
+                    <div class="card mb-6 box-shadow">
+                        <div class="card-body">
+                            <p class="card-text text-truncate">{{this.title}}</p>
+                            <p><small class="text-muted"><em>Read Article: </em><a href="{{this.link}}" target="_blank"
                   class="text-success">{{this.link}}</a></small></p>
-                                        <button type="button" class="btn btn-sm btn-primary">View</button>
-                                        <button type="button" class="btn btn-sm btn-success">Edit</button>  
-                              </div>
-                            </div>
- 
-                            {{/if}}
-                        </div>       
-                   {{/each}}
-           </div>  
+                            <button type="button" data-id={{this._id}} id="addNote" class="btn btn-sm btn-success">Add/Update Note</button>
+
+                        </div>
+                    </div>
+
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
         </div>
     </div>
 </main>
