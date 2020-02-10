@@ -36,6 +36,7 @@ footer {
 footer p {
     margin-bottom: .25rem;
     text-align: center;
+    position: fixed;
 }
 
 .box-shadow {
@@ -48,10 +49,12 @@ p {
     overflow: hidden;
 }
 
-
-/* 
-.scroll-box {
-    overflow-y: scroll;
-    height: 100px;
-    padding: 1rem
-} */
+body {
+    background-image: url("wsjbackground.png");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
