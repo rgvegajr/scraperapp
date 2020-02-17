@@ -59,8 +59,19 @@ module.exports = function(app) {
                 var result = {};
 
                 // Add the text and href of every link, and save them as properties of the result object
-                result.title = $(this)
-                    .children()
+                result.headline = $(this)
+                    .children("div")
+                    .text();
+
+
+
+
+
+                // result.title = $(this)
+                //     .children()
+                //     .text();
+                result.summary = $(this)
+                    .children("p")
                     .text();
                 result.link = $(this)
                     .find("a")
