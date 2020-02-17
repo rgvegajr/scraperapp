@@ -13,14 +13,6 @@ module.exports = function(app) {
             };
             res.render('index', { articles: articles });
         });
-
-        // }
-
-        //     {}).then(function(articles) {
-        //     res.render("index", {
-        //         title: articles.title,
-        //         link: articles.link
-        //     });
     });
 
     // Load saved articles page
@@ -32,14 +24,6 @@ module.exports = function(app) {
             };
             res.render('saved', { articles: articles });
         });
-
-        // }
-
-        //     {}).then(function(articles) {
-        //     res.render("index", {
-        //         title: articles.title,
-        //         link: articles.link
-        //     });
     });
     // A GET route for scraping the echoJS website
     app.get("/scrape", function(req, res) {
@@ -62,11 +46,6 @@ module.exports = function(app) {
                 result.headline = $(this)
                     .children("div")
                     .text();
-
-
-
-
-
                 // result.title = $(this)
                 //     .children()
                 //     .text();
@@ -88,7 +67,6 @@ module.exports = function(app) {
                         console.log(err);
                     });
             });
-
             res.redirect("/");
         });
     });
@@ -137,12 +115,4 @@ module.exports = function(app) {
                 res.json(err);
             });
     });
-
-
-
-
-
-
-
-
 };

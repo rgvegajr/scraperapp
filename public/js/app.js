@@ -26,13 +26,18 @@ $(document).on("click", "#addNote", function() {
             console.log(data);
             //REPLACE with modal activated form for submission and display of note
             // // The title of the article
-            $("#notes").append("<em>" + data.title + "</em><br>");
+            $("#notes").append("<div class='col-md-12'>");
+            $("#notes").append("<div class='card-body'>");
+            $("#notes").append("<h4>Add note to article:</h4>");
+            $("#notes").append("<p class='card-title text-truncate'<em>" + data.headline + "</em></p>");
             // An input to enter a new title
-            $("#notes").append("<input id='titleinput' name='title' placeholder='Enter title'>");
+            $("#notes").append("<p class='card-text'><input id='titleinput' name='title' placeholder='Enter title'></p>");
             // A textarea to add a new note body
-            $("#notes").append("<p><textarea id='bodyinput' name='body' placeholder='Enter text'></textarea></p>");
+            $("#notes").append("<p class='card-text'><textarea id='bodyinput' name='body' placeholder='Enter text'></textarea></p>");
             // A button to submit a new note, with the id of the article saved to it
-            $("#notes").append("<button data-id='" + data._id + "' class='btn btn-sm btn-success' id='saveNote'>Save Note</button>");
+            $("#notes").append("<p class='card-text'><button data-id='" + data._id + "' class='btn btn-sm btn-success' id='saveNote'>Save Note</button></p>");
+            $("#notes").append("</div>");
+            $("#notes").append("</div>");
 
             // If there's a note in the article
             if (data.note) {
