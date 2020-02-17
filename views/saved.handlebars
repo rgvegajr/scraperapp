@@ -17,11 +17,10 @@
                     {{#if this.saved}}
                     <div class="card mb-6 box-shadow">
                         <div class="card-body">
-                            <p class="card-text text-truncate">{{this.title}}</p>
-                            <p><small class="text-muted"><em>Read Article: </em><a href="{{this.link}}" target="_blank"
-                  class="text-success">{{this.link}}</a></small></p>
+                           <p class="card-title text-truncate"><strong><em>{{this.headline}}</em></strong></p>
+                            <p class="card-text">{{this.summary}}</p>
+                            <p><small class="text-muted text-info"><em>Read Article: </em><a href="{{this.link}}" target="_blank">{{this.link}}</a></small></p>
                             <button type="button" data-id={{this._id}} id="addNote" class="btn btn-sm btn-success">Add/Update Note</button>
-
                         </div>
                     </div>
 

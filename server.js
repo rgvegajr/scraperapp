@@ -35,6 +35,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraper";
 
 // mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 mongoose.connect(MONGODB_URI);
+mongoose.set('useFindAndModify', false);
 
 
 // Handlebars
